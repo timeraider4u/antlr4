@@ -631,6 +631,9 @@ setState(<r.stateNumber>);
 MatchToken(m) ::= <<
 setState(<m.stateNumber>);
 <if(m.labels)><m.labels:{l | <labelref(l)> = }><endif>match(<m.name>);
+<if(m.factory.generator.tool.includeTokenInVisitor)>
+	/*includeTokenInVisitor(<m.name>,<m.ttype>)*/
+<endif>
 >>
 
 MatchSet(m, expr, capture) ::= "<CommonSetStuff(m, expr, capture, false)>"
